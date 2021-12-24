@@ -29,6 +29,13 @@
                             <c:forEach var="medico" items="${medicos}" >
                                 <tr> 
                                     <td>${medico.nombre}</td>
+                                    <td>${medico.idMedico}</td>
+                                    <td>${medico.tipoIdentificacion}</td>
+                                    <td>${medico.NTarjetaProfesional}</td>
+                                    <td>${medico.aniosExperiencia}</td>
+                                    <td>${medico.especialidad}</td>
+                                    <td>${medico.horaInicioAtencion}</td>
+                                    <td>${medico.horaFinAtencion}</td>
                                     <td>
                                         <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idMedico=${medico.idMedico}" class="btn btn-secondary">
                                             <i class="fas fa-angle-double-right"></i> Editar
