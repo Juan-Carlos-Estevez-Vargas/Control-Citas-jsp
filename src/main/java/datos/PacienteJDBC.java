@@ -1,12 +1,8 @@
 package datos;
 
 import dominio.Paciente;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 public class PacienteJDBC {
 
@@ -48,7 +44,6 @@ public class PacienteJDBC {
                 // Añadiendo paciente a la lista de pacientes
                 pacientes.add(paciente);
             }
-            System.out.println(pacientes);
         } catch (SQLException ex) {
             System.err.println("Error al listar los pacientes: " + ex.getMessage());
         } finally {
@@ -125,7 +120,6 @@ public class PacienteJDBC {
 
             // Ejecutando la sentencia SQL_INSERT
             rows = stmt.executeUpdate();
-
         } catch (SQLException ex) {
             System.err.println("Error al insertar paciente " + ex.getMessage());
         } finally {

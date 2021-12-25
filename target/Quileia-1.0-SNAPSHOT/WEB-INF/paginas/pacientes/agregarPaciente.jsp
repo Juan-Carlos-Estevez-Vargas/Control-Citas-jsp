@@ -15,15 +15,19 @@
                     </div>
                     <div class="form-group">
                         <label for="fechaNacimiento">Fecha de nacimiento</label>
-                        <input type="text" class="form-control" name="fechaNacimiento" required>
+                        <input type="date" class="form-control" name="fechaNacimiento" required>
                     </div>
                     <div class="form-group">
                         <label for="idPaciente">Identificación</label>
                         <input type="text" class="form-control" name="idPaciente" required>
                     </div>
                     <div class="form-group">
-                        <label for="tipoIdentificacion">Tipo de Identificación</label>
-                        <input type="text" class="form-control" name="tipoIdentificacion" required>
+                        <label for="tipoIdentificacion">Tipo Identificación</label>
+                        <!--<input type="text" class="form-control" name="tipoIdentificacion" required>-->
+                        <select required name="tipoIdentificacion">
+                            <option value="CC">CC</option>
+                            <option value="TI">TI</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="eps">EPS</label>

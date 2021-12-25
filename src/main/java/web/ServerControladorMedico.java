@@ -45,6 +45,8 @@ public class ServerControladorMedico extends HttpServlet {
                 case "modificar":
                     this.modificarMedico(request, response);
                     break;
+                case "eliminar":
+                    this.eliminarMedico(request, response);
                 default:
                     this.accionDefalult(request, response);
             }
@@ -57,7 +59,6 @@ public class ServerControladorMedico extends HttpServlet {
     private void accionDefalult(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Listando los médicos
         List<Medico> medicos = new MedicoJDBC().listar();
-        System.out.println(medicos);
 
         // Compartiendo la información con el frontend (alcance sesión)
         HttpSession sesion = request.getSession();
@@ -132,7 +133,7 @@ public class ServerControladorMedico extends HttpServlet {
 
         // Creando el objeto médico (modelo)
         Medico medico = new Medico(idMedico);
-
+        
         // Modificando el médico en la base de datos
         int registrosModificados = new MedicoJDBC().eliminar(medico);
         System.out.println("Registros Eliminados = " + registrosModificados);

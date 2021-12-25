@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <!-- Agregando las tarjetas para los totales -->
+            <!-- Agregando la tarjeta para los totales -->
             <div class="col-md-3">
                 <div class="card text-center bg-success text-white mb-3">
                     <div class="card-body">

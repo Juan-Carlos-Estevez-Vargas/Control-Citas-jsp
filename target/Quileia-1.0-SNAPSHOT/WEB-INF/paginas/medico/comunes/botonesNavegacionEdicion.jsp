@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <a href="index.jsp" class="btn btn-light btn-block">
+                <a href="medicos.jsp" class="btn btn-light btn-block">
                     <i class="fas fa-arrow-left"></i> Regresar al inicio
                 </a>
             </div>

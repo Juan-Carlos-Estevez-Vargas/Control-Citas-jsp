@@ -21,8 +21,8 @@
                         <label for="tipoIdentificacion">Tipo Identificación</label>
                         <!--<input type="text" class="form-control" name="tipoIdentificacion" required>-->
                         <select required name="tipoIdentificacion">
-                            <option value="1">CC</option>
-                            <option value="1">TI</option>
+                            <option value="CC">CC</option>
+                            <option value="TI">TI</option>
                         </select>
                     </div>
                     <div class="form-group">

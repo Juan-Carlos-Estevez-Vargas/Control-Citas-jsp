@@ -47,7 +47,6 @@ public class MedicoJDBC {
                 // Añadiendo médico a la lista de clientes
                 medicos.add(medico);
             }
-            System.out.println(medicos);
         } catch (SQLException ex) {
             System.err.println("Error al listar los médicos: " + ex.getMessage());
         } finally {

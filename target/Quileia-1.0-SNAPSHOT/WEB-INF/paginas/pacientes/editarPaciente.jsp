@@ -26,27 +26,30 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="nombre">Nombre Completo</label>
-                                        <input type="text" class="form-control" name="nombre" required>
+                                        <input type="text" class="form-control" name="nombre" required value="${paciente.getNombre()}">
                                     </div>
                                     <div class="form-group">
                                         <label for="fechaNacimiento">Fecha de nacimiento</label>
-                                        <input type="text" class="form-control" name="fechaNacimiento" required>
+                                        <input type="date" class="form-control" name="fechaNacimiento" required value="${paciente.getFechaNacimiento()}">
                                     </div>
                                     <div class="form-group">
                                         <label for="idPaciente">Identificación</label>
-                                        <input type="text" class="form-control" name="idPaciente" required>
+                                        <input type="text" class="form-control" name="idPaciente" required value="${paciente.getIdPaciente()}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="tipoIdentificacion">Tipo de Identificación</label>
-                                        <input type="text" class="form-control" name="tipoIdentificacion" required>
+                                        <label for="tipoIdentificacion">Tipo Identificación</label>
+                                        <select required name="tipoIdentificacion">
+                                            <option value="CC">CC</option>
+                                            <option value="TI">TI</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="eps">EPS</label>
-                                        <input type="text" class="form-control" name="eps" required>
+                                        <input type="text" class="form-control" name="eps" required value="${paciente.getEps()}"> 
                                     </div>
                                     <div class="form-group">
                                         <label for="historiaClinica">Historia Clinica</label>
-                                        <input type="text" class="form-control" name="historiaClinica" required>
+                                        <input type="text" class="form-control" name="historiaClinica" required value="${paciente.getHistoriaClinica()}">
                                     </div>
                                 </div>
                             </div>

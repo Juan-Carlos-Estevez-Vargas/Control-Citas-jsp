@@ -1,9 +1,7 @@
 package web;
 
 // Librerías
-import datos.MedicoJDBC;
 import datos.PacienteJDBC;
-import dominio.Medico;
 import dominio.Paciente;
 import java.io.IOException;
 import java.util.List;
@@ -57,9 +55,8 @@ public class ServerControladorPaciente extends HttpServlet {
 
     //------------- Métodos CRUD -----------------------------------------------------------
     private void accionDefalult(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Listando los médicos
+        // Listando los pacientes
         List<Paciente> pacientes = new PacienteJDBC().listar();
-        System.out.println(pacientes);
 
         // Compartiendo la información con el frontend (alcance sesión)
         HttpSession sesion = request.getSession();
