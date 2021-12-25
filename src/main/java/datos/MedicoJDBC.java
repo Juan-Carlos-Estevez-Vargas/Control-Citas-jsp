@@ -11,7 +11,7 @@ public class MedicoJDBC {
     private static final String SQL_SELECT = "SELECT * FROM medico";
     private static final String SQL_SELECT_BY_ID = "SELECT * FROM medico WHERE idMedico = ?";
     private static final String SQL_INSERT = "INSERT INTO medico VALUES (?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE medico SET nombre = ?, idMedico = ?, tipoIdentificacion = ?, NTarjetaProfesional = ?, aniosExperiencia = ?, especialidad = ?, horaInicioAtencion = ?, horaFinAtencion = ? WHERE idMedico = ?";
+    private static final String SQL_UPDATE = "UPDATE medico SET nombreMedico = ?, idMedico = ?, tipoIdentificacion = ?, NTarjetaProfesional = ?, aniosExperiencia = ?, especialidad = ?, horaInicioAtencion = ?, horaFinAtencion = ? WHERE idMedico = ?";
     private static final String SQL_DELETE = "DELETE FROM medico WHERE idMedico = ?";
 
     // Método para listar los médicos
@@ -33,7 +33,7 @@ public class MedicoJDBC {
             // Iterando los médicos de la base de datos
             while (rs.next()) {
                 // Recuperando los campos
-                String nombre = rs.getString("nombre");
+                String nombre = rs.getString("nombreMedico");
                 String idMedico = rs.getString("idMedico");
                 String tipoIdentificacion = rs.getString("tipoIdentificacion");
                 String NTarjetaProfesional = rs.getString("NTarjetaProfesional");
@@ -70,13 +70,14 @@ public class MedicoJDBC {
         try {
             // Ejecutando la sentencia SQL de tipo SELECT_BY_ID
             con = Conexion.getConnection();
-            stmt = con.prepareStatement(SQL_SELECT_BY_ID);
+            stmt= con.prepareStatement(SQL_SELECT_BY_ID, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             stmt.setString(1, medico.getIdMedico()); // Seteando el parámetro de la consulta preparada
             rs = stmt.executeQuery();
-            rs.absolute(1); // Posicionandonos en el primer registro encontrado
+            rs.absolute(1);
+            
 
             // Recuperando los campos
-            String nombre = rs.getString("nombre");
+            String nombre = rs.getString("nombreMedico");
             String idMedico = rs.getString("idMedico");
             String tipoIdentificacion = rs.getString("tipoIdentificacion");
             String NTarjetaProfesional = rs.getString("NTarjetaProfesional");
@@ -94,6 +95,7 @@ public class MedicoJDBC {
             medico.setEspecialidad(especialidad);
             medico.setHoraInicioAtencion(horaInicioAtencion);
             medico.setHoraFinAtencion(horaFinAtencion);
+
         } catch (SQLException ex) {
             System.err.println("Error al encontrar médico " + ex.getMessage());
         } finally {
@@ -153,7 +155,7 @@ public class MedicoJDBC {
             // Ejecutando la sentencia SQL de tipo UPDATE
             con = Conexion.getConnection();
             stmt = con.prepareStatement(SQL_UPDATE);
-
+            
             // Seteando los parámetros a la consulta preparada
             stmt.setString(1, medico.getNombre());
             stmt.setString(2, medico.getIdMedico());
@@ -163,7 +165,7 @@ public class MedicoJDBC {
             stmt.setString(6, medico.getEspecialidad());
             stmt.setString(7, medico.getHoraInicioAtencion());
             stmt.setString(8, medico.getHoraFinAtencion());
-            stmt.setString(2, medico.getIdMedico());
+            stmt.setString(9, medico.getIdMedico());
 
             // Ejecutando la sentencia SQL_UPDATE
             rows = stmt.executeUpdate();

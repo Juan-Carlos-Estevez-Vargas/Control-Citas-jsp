@@ -19,7 +19,11 @@
                     </div>
                     <div class="form-group">
                         <label for="tipoIdentificacion">Tipo Identificación</label>
-                        <input type="text" class="form-control" name="tipoIdentificacion" required>
+                        <!--<input type="text" class="form-control" name="tipoIdentificacion" required>-->
+                        <select required name="tipoIdentificacion">
+                            <option value="1">CC</option>
+                            <option value="1">TI</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="NTarjetaProfesional">Número Tarjeta Profesional</label>

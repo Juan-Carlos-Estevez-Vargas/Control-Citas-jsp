@@ -9,5 +9,6 @@
         <h1>Hello World!</h1>
         <a href="medicos.jsp">link</a>
         <a href="pacientes.jsp">link2</a>
+        <a href="citas.jsp">link3</a>
     </body>
 </html>

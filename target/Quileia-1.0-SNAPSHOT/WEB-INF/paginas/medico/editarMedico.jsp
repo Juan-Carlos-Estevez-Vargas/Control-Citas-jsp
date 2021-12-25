@@ -1,4 +1,4 @@
-<!<!-- Usando la librería core de JSTL -->
+<!-- Usando la librería core de JSTL -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,31 +30,35 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="idMedico">Identificación</label>
-                                        <input type="text" class="form-control" name="idMedico" required>
+                                        <input type="text" class="form-control" name="idMedico" required value="${medico.getIdMedico()}">
                                     </div>
                                     <div class="form-group">
                                         <label for="tipoIdentificacion">Tipo Identificación</label>
-                                        <input type="text" class="form-control" name="tipoIdentificacion" required>
+                                        <!--<input type="text" class="form-control" name="tipoIdentificacion" required>-->
+                                        <select required name="tipoIdentificacion">
+                                            <option value="CC">CC</option>
+                                            <option value="TI">TI</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="NTarjetaProfesional">Número Tarjeta Profesional</label>
-                                        <input type="text" class="form-control" name="NTarjetaProfesional" required>
+                                        <input type="text" class="form-control" name="NTarjetaProfesional" required value="${medico.getNTarjetaProfesional()}">
                                     </div>
                                     <div class="form-group">
                                         <label for="aniosExperiencia">Años de Experiencia</label>
-                                        <input type="number" class="form-control" name="aniosExperiencia" required>
+                                        <input type="number" class="form-control" name="aniosExperiencia" required value="${medico.getAniosExperiencia()}">
                                     </div>
                                     <div class="form-group">
                                         <label for="especialidad">Especialidad</label>
-                                        <input type="text" class="form-control" name="especialidad" required>
+                                        <input type="text" class="form-control" name="especialidad" required value="${medico.getEspecialidad()}">
                                     </div>
                                     <div class="form-group">
                                         <label for="horaInicioAtencion">Hora Inicio Atención</label>
-                                        <input type="text" class="form-control" name="horaInicioAtencion" required>
+                                        <input type="text" class="form-control" name="horaInicioAtencion" required value="${medico.getHoraInicioAtencion()}">
                                     </div>
                                     <div class="form-group">
                                         <label for="horaFinAtencion">Hora Fin Atencion</label>
-                                        <input type="text" class="form-control" name="horaFinAtencion" required>
+                                        <input type="text" class="form-control" name="horaFinAtencion" required value="${medico.getHoraFinAtencion()}">
                                     </div>
                                 </div>
                             </div>

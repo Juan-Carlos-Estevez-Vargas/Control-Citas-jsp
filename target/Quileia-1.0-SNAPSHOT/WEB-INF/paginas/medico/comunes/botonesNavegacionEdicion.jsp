@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="col-md-3">
-                <a href="${pageContext.request.contextPath}/ServletControlador?accion=eliminar?idMédico=${medico.idMedico}" 
+                <a href="${pageContext.request.contextPath}/ServletControladorMedico?accion=eliminar?idMédico=${medico.idMedico}" 
                    class="btn btn-danger btn-block">
                     <i class="fas fa-trash"></i> Eliminar Médico
                 </a>

@@ -1,5 +1,7 @@
 web\ServerControladorPaciente.class
+dominio\Citas.class
 dominio\Medico.class
+datos\CitasJDBC.class
 datos\Conexion.class
 datos\PacienteJDBC.class
 datos\MedicoJDBC.class
