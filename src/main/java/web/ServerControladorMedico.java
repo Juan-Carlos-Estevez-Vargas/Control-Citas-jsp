@@ -9,8 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/ServletControlador")
-public class ServerControlador extends HttpServlet {
+@WebServlet("/ServletControladorMedico")
+public class ServerControladorMedico extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

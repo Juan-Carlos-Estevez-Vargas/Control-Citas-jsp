@@ -6,17 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <title>Control de Médicos</title>
+        <title>Control de Pacientes</title>
     </head>
     <body>
         <!-- Cabecero usando bootstrap -->
-        <jsp:include page="/WEB-INF/paginas/medico/comunes/cabecero.jsp" />
+        <jsp:include page="WEB-INF/paginas/pacientes/comunes/cabecero.jsp" />
 
         <!-- Botones de navegación -->
-        <jsp:include page="/WEB-INF/paginas/medico/comunes/botonesNavegacion.jsp" />
+        <jsp:include page="WEB-INF/paginas/pacientes/comunes/botonesNavegacion.jsp" />
 
         <!-- Listado Clientes -->
-        <jsp:include page="WEB-INF/paginas/medico/listadoMedicos.jsp" />
+        <jsp:include page="WEB-INF/paginas/pacientes/listadoPacientes.jsp" />
 
         <!-- Pie de página o footer -->
         <jsp:include page="/WEB-INF/paginas/medico/comunes/piePagina.jsp" />

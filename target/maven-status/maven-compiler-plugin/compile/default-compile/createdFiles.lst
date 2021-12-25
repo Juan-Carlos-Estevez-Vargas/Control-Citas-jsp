@@ -1,4 +1,7 @@
-datos\Conexion.class
-datos\MedicoJDBC.class
-web\ServerControlador.class
+web\ServerControladorPaciente.class
 dominio\Medico.class
+datos\Conexion.class
+datos\PacienteJDBC.class
+datos\MedicoJDBC.class
+dominio\Paciente.class
+web\ServerControladorMedico.class

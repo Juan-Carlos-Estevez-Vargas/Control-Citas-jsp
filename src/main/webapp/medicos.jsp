@@ -1,4 +1,4 @@
-<!<!-- Usando la librería core de JSTL -->
+<!-- Usando la librería core de JSTL -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,16 +10,16 @@
     </head>
     <body>
         <!-- Cabecero usando bootstrap -->
-        <jsp:include page="/WEB-INF/paginas/comunes/cabecero.jsp" />
+        <jsp:include page="/WEB-INF/paginas/medico/comunes/cabecero.jsp" />
 
         <!-- Botones de navegación -->
-        <jsp:include page="/WEB-INF/paginas/comunes/botonesNavegacion.jsp" />
+        <jsp:include page="/WEB-INF/paginas/medico/comunes/botonesNavegacion.jsp" />
 
         <!-- Listado Clientes -->
         <jsp:include page="WEB-INF/paginas/medico/listadoMedicos.jsp" />
 
         <!-- Pie de página o footer -->
-        <jsp:include page="/WEB-INF/paginas/comunes/piePagina.jsp" />
+        <jsp:include page="/WEB-INF/paginas/medico/comunes/piePagina.jsp" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

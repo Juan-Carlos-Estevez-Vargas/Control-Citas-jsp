@@ -10,11 +10,11 @@
     </head>
     <body>
         <!-- Cabecero usando bootstrap -->
-        <jsp:include page="/WEB-INF/paginas/comunes/cabecero.jsp" />
+        <jsp:include page="/WEB-INF/paginas/medico/comunes/cabecero.jsp" />
 
-        <form action="${pageContext.request.contextPath}/ServletControlador?accion=modificar&idMedico=${cliente.idMedico}" method="POST" class="was-validated">
+        <form action="${pageContext.request.contextPath}/ServletControladorMedico?accion=modificar&idMedico=${medico.idMedico}" method="POST" class="was-validated">
             <!-- Botones de navegación -->
-            <jsp:include page="/WEB-INF/paginas/comunes/botonesNavegacionEdicion.jsp" />   
+            <jsp:include page="/WEB-INF/paginas/medico/comunes/botonesNavegacionEdicion.jsp" />   
             <section id="details">
                 <div class="container">
                     <div class="row">
@@ -64,8 +64,8 @@
             </section>
         </form>
 
-        <!<!-- Pie de página o footer -->
-        <jsp:include page="/WEB-INF/paginas/comunes/piePagina.jsp" />
+        <!-- Pie de página o footer -->
+        <jsp:include page="/WEB-INF/paginas/medico/comunes/piePagina.jsp" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

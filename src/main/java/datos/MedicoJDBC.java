@@ -11,7 +11,7 @@ public class MedicoJDBC {
     private static final String SQL_SELECT = "SELECT * FROM medico";
     private static final String SQL_SELECT_BY_ID = "SELECT * FROM medico WHERE idMedico = ?";
     private static final String SQL_INSERT = "INSERT INTO medico VALUES (?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE cliente SET nombre = ?, idMedico = ?, tipoIdentificacion = ?, NTarjetaProfesional = ?, aniosExperiencia = ?, especialidad = ?, horaInicioAtencion = ?, horaFinAtencion = ? WHERE idMedico = ?";
+    private static final String SQL_UPDATE = "UPDATE medico SET nombre = ?, idMedico = ?, tipoIdentificacion = ?, NTarjetaProfesional = ?, aniosExperiencia = ?, especialidad = ?, horaInicioAtencion = ?, horaFinAtencion = ? WHERE idMedico = ?";
     private static final String SQL_DELETE = "DELETE FROM medico WHERE idMedico = ?";
 
     // Método para listar los médicos
@@ -44,7 +44,7 @@ public class MedicoJDBC {
 
                 // Creando un nuevo medico
                 medico = new Medico(nombre, idMedico, tipoIdentificacion, NTarjetaProfesional, aniosExperiencia, especialidad, horaInicioAtencion, horaFinAtencion);
-                // Añadiendo cliente a la lista de clientes
+                // Añadiendo médico a la lista de clientes
                 medicos.add(medico);
             }
             System.out.println(medicos);
@@ -85,7 +85,7 @@ public class MedicoJDBC {
             String horaInicioAtencion = rs.getString("horaInicioAtencion");
             String horaFinAtencion = rs.getString("horaFinAtencion");
 
-            // Setenado los campos al cliente (Creando un nuevo cliente)
+            // Setenado los campos al médico (Creando un nuevo médico)
             medico.setNombre(nombre);
             medico.setIdMedico(idMedico);
             medico.setTipoIdentificacion(tipoIdentificacion);

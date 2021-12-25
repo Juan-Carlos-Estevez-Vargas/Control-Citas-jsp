@@ -25,7 +25,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!<!-- Iterando cada elemento de la lista de clientes -->
+                            <!<!-- Iterando cada elemento de la lista de médicos -->
                             <c:forEach var="medico" items="${medicos}" >
                                 <tr> 
                                     <td>${medico.nombre}</td>
@@ -37,7 +37,7 @@
                                     <td>${medico.horaInicioAtencion}</td>
                                     <td>${medico.horaFinAtencion}</td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idMedico=${medico.idMedico}" class="btn btn-secondary">
+                                        <a href="${pageContext.request.contextPath}/ServletControladorMedico?accion=editar&idMedico=${medico.idMedico}" class="btn btn-secondary">
                                             <i class="fas fa-angle-double-right"></i> Editar
                                         </a>
                                     </td>
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <!-- Agregando las tarjetas para los totales -->
+            <!-- Agregando la tarjeta para el total de médicos -->
             <div class="col-md-3">
                 <div class="card text-center bg-success text-white mb-3">
                     <div class="card-body">
