@@ -24,16 +24,12 @@
                             <!-- Iterando cada elemento de la lista de médicos -->
                             <c:forEach var="cita" items="${citas}" >
                                 <tr> 
-                                    <td>${medico.nombre}</td>
-                                    <td>${medico.idMedico}</td>
-                                    <td>${medico.tipoIdentificacion}</td>
-                                    <td>${medico.NTarjetaProfesional}</td>
-                                    <td>${medico.aniosExperiencia}</td>
-                                    <td>${medico.especialidad}</td>
-                                    <td>${medico.horaInicioAtencion}</td>
-                                    <td>${medico.horaFinAtencion}</td>
+                                    <td>${cita.idCita}</td>
+                                    <td>${cita.nombreMedico}</td>
+                                    <td>${cita.nombre}</td>
+                                    <td>${cita.hora}</td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/ServletControladorMedico?accion=editar&idMedico=${medico.idMedico}" class="btn btn-secondary">
+                                        <a href="${pageContext.request.contextPath}/ServletControladorCitas?accion=editar&idCita=${medico.idCita}" class="btn btn-secondary">
                                             <i class="fas fa-angle-double-right"></i> Editar
                                         </a>
                                     </td>
@@ -44,13 +40,13 @@
                 </div>
             </div>
 
-            <!-- Agregando la tarjeta para el total de médicos -->
+            <!-- Agregando la tarjeta para el total de citas -->
             <div class="col-md-3">
                 <div class="card text-center bg-success text-white mb-3">
                     <div class="card-body">
-                        <h3>Total Médicos</h3>
+                        <h3>Total Citas</h3>
                         <h4 class="display-4">
-                            <i class="fas fa-users"></i> ${totalMedicos}
+                            <i class="fas fa-users"></i> ${totalCitas}
                         </h4>
                     </div>
                 </div>  
@@ -59,5 +55,5 @@
     </div>
 </section>
 
-<!-- Agregar Cliente Modal -->
-<jsp:include page="agregarMedico.jsp" />
+<!-- Agregar Modal -->
+<jsp:include page="agregarCitas.jsp" />

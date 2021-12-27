@@ -73,7 +73,6 @@ public class MedicoJDBC {
             stmt.setString(1, medico.getIdMedico()); // Seteando el parámetro de la consulta preparada
             rs = stmt.executeQuery();
             rs.absolute(1);
-            
 
             // Recuperando los campos
             String nombre = rs.getString("nombreMedico");

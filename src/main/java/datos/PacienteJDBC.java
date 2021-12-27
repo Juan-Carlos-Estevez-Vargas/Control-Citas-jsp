@@ -66,7 +66,7 @@ public class PacienteJDBC {
         try {
             // Ejecutando la sentencia SQL de tipo SELECT_BY_ID
             con = Conexion.getConnection();
-            stmt = con.prepareStatement(SQL_SELECT_BY_ID);
+            stmt = con.prepareStatement(SQL_SELECT_BY_ID, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             stmt.setString(1, paciente.getIdPaciente()); // Seteando el parámetro de la consulta preparada
             rs = stmt.executeQuery();
             rs.absolute(1); // Posicionandonos en el primer registro encontrado

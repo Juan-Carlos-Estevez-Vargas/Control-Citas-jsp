@@ -1,4 +1,6 @@
-web\ServerControladorPaciente.class
+web\ServletControladorPaciente.class
+web\ServletControladorMedico.class
+web\ServletControladorCitas.class
 dominio\Citas.class
 dominio\Medico.class
 datos\CitasJDBC.class
@@ -6,4 +8,3 @@ datos\Conexion.class
 datos\PacienteJDBC.class
 datos\MedicoJDBC.class
 dominio\Paciente.class
-web\ServerControladorMedico.class

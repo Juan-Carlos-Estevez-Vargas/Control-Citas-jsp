@@ -1,9 +1,10 @@
 D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\datos\Conexion.java
 D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\datos\CitasJDBC.java
 D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\dominio\Paciente.java
-D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\web\ServerControladorPaciente.java
 D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\dominio\Citas.java
 D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\dominio\Medico.java
-D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\web\ServerControladorMedico.java
+D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\web\ServletControladorCitas.java
 D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\datos\PacienteJDBC.java
+D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\web\ServletControladorMedico.java
 D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\datos\MedicoJDBC.java
+D:\Documents\Programacion\Java\6. JavaWeb\1. JSPs y Servlets\Quileia\src\main\java\web\ServletControladorPaciente.java
