@@ -72,13 +72,12 @@ public class ServletControladorCitas extends HttpServlet {
     // Método para insertar un médico a la base de datos
     private void insertarCita(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Recuperando los valores del formulario agregarCita.jsp
-        int idCita = Integer.parseInt(request.getParameter("idCita"));
-        String nombreMedico = request.getParameter("nombreMedico");
-        String nombrePaciente = request.getParameter("nombre");
+        String nombreMedico = request.getParameter("medico");
+        String nombrePaciente = request.getParameter("paciente");
         String hora = request.getParameter("hora");
 
         // Creando el objeto cita (modelo)
-        Citas cita = new Citas(idCita, nombreMedico, nombrePaciente, hora);
+        Citas cita = new Citas(nombreMedico, nombrePaciente, hora);
 
         // Insertando la cita en la base de datos
         int registrosModificados = new CitasJDBC().insertar(cita);

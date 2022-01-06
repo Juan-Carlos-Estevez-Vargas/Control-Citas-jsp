@@ -113,10 +113,14 @@ public class ServletControladorPaciente extends HttpServlet {
     private void eliminarPaciente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Recuperando los valores del formulario agregarPaciente.jsp
         String idPaciente = request.getParameter("idPaciente");
+        
+        // Recuperando o encontrando el objeto paciente asociado al idPaciente
+        Paciente paciente = new PacienteJDBC().encontrar(new Paciente(idPaciente));
+        System.out.println(paciente);
 
-        // Creando el objeto paciente (modelo)
-        Paciente paciente = new Paciente(idPaciente);
-
+//        // Creando el objeto paciente (modelo)
+//        Paciente paciente = new Paciente(idPaciente);
+//
         // Modificando el paciente en la base de datos
         int registrosModificados = new PacienteJDBC().eliminar(paciente);
         System.out.println("Registros Eliminados = " + registrosModificados);

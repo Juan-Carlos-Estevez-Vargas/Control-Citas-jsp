@@ -1,7 +1,6 @@
 package dominio;
 
 public class Medico {
-
     // Mapeo de la tabla Medico de la base de datos
     private String nombre;
     private String idMedico;
@@ -12,16 +11,14 @@ public class Medico {
     private String horaInicioAtencion;
     private String horaFinAtencion;
 
-    // Constructor vacío
+    // Constructores ---------------------------------------------------------------------
     public Medico() {
     }
 
-    // Constructor para eliminar medicos
     public Medico(String idMedico) {
         this.idMedico = idMedico;
     }
 
-    // Constructor para insertar medicos
     public Medico(String nombre, String tipoIdentificacion, String NTarjetaProfesional, double aniosExperiencia, String especialidad, String horaInicioAtencion, String horaFinAtencion) {
         this.nombre = nombre;
         this.tipoIdentificacion = tipoIdentificacion;
@@ -32,7 +29,6 @@ public class Medico {
         this.horaFinAtencion = horaFinAtencion;
     }
 
-    // Constructor para actualizar médicos
     public Medico(String nombre, String idMedico, String tipoIdentificacion, String NTarjetaProfesional, double aniosExperiencia, String especialidad, String horaInicioAtencion, String horaFinAtencion) {
         this.nombre = nombre;
         this.idMedico = idMedico;
@@ -43,6 +39,7 @@ public class Medico {
         this.horaInicioAtencion = horaInicioAtencion;
         this.horaFinAtencion = horaFinAtencion;
     }
+    // ---------------------- Fin Constructores ----------------------------------------------------------------
 
     // ----------- Métodos Setters and Setters --------------------------------------------------------
     public String getNombre() {

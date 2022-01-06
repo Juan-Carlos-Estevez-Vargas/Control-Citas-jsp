@@ -1,12 +1,13 @@
 package dominio;
 
 public class Citas {
-
+    // Mapeo de la tabla Citas de la base de datos
     private int idCita;
     private String medico;
     private String paciente;
     private String hora;
 
+    // ---------- Constructores -----------------------------------------------------------
     public Citas() {
     }
 
@@ -26,7 +27,9 @@ public class Citas {
         this.paciente = paciente;
         this.hora = hora;
     }
-
+    // ---------- Fin Constructores ------------------------------------------------------
+    
+    // ------- Getters and Setters --------------------------------------------------------
     public int getIdCita() {
         return idCita;
     }
@@ -58,6 +61,7 @@ public class Citas {
     public void setHora(String hora) {
         this.hora = hora;
     }
+    // ------------- Fin Getters and Setters ----------------------------------------------
 
     @Override
     public String toString() {
