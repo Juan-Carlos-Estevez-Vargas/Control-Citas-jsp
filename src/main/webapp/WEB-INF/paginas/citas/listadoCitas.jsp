@@ -13,23 +13,23 @@
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th>ID Cita</th>
+                                <th>ID</th>
                                 <th>Médico</th>
                                 <th>Paciente</th>
-                                <th>Hora Cita</th>
+                                <th>Hora</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Iterando cada elemento de la lista de médicos -->
+                            <!<!-- Iterando cada elemento de la lista de médicos -->
                             <c:forEach var="cita" items="${citas}" >
                                 <tr> 
                                     <td>${cita.idCita}</td>
-                                    <td>${cita.nombreMedico}</td>
-                                    <td>${cita.nombre}</td>
+                                    <td>${cita.medico}</td>
+                                    <td>${cita.paciente}</td>
                                     <td>${cita.hora}</td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/ServletControladorCitas?accion=editar&idCita=${medico.idCita}" class="btn btn-secondary">
+                                        <a href="${pageContext.request.contextPath}/ServletControladorCitas?accion=editar&idCita=${cita.idCita}" class="btn btn-secondary">
                                             <i class="fas fa-angle-double-right"></i> Editar
                                         </a>
                                     </td>
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <!-- Agregando la tarjeta para el total de citas -->
+            <!-- Agregando la tarjeta para el total de médicos -->
             <div class="col-md-3">
                 <div class="card text-center bg-success text-white mb-3">
                     <div class="card-body">
@@ -55,5 +55,5 @@
     </div>
 </section>
 
-<!-- Agregar Modal -->
-<jsp:include page="agregarCitas.jsp" />
+<!-- Agregar Cliente Modal -->
+<jsp:include page="agregarCita.jsp" />

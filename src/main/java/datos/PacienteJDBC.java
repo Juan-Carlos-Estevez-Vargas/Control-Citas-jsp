@@ -167,6 +167,7 @@ public class PacienteJDBC {
     // Método para eliminar un paciente
     public int eliminar(Paciente paciente) {
 
+        System.err.println(paciente.getIdPaciente());
         // Declarando los objetos
         Connection con = null;
         PreparedStatement stmt = null;

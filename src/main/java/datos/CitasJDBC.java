@@ -1,6 +1,7 @@
 package datos;
 
 import dominio.Citas;
+import dominio.Paciente;
 import java.sql.*;
 import java.util.*;
 
@@ -9,11 +10,11 @@ public class CitasJDBC {
     // Variables con las consultas de tipo SQL
     private static final String SQL_SELECT = "SELECT * FROM citas";
     private static final String SQL_SELECT_BY_ID = "SELECT * FROM citas WHERE idCita = ?";
-    private static final String SQL_INSERT = "INSERT INTO citas (medico, paciente, hora) VALUES (?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE citas SET medico = ?, paciente = ?, hora = ? WHERE idCita = ?";
+    private static final String SQL_INSERT = "INSERT INTO pcitas VALUES (?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE citas SET idCita = ?, medico = ?, paciente = ?, hora = ? WHERE idCita = ?";
     private static final String SQL_DELETE = "DELETE FROM citas WHERE idCita = ?";
 
-    // Método para listar las citas
+    // Método para listar los pacientes
     public List<Citas> listar() {
 
         // Declarando los objetos
@@ -29,16 +30,17 @@ public class CitasJDBC {
             stmt = con.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
 
-            // Iterando las citas de la base de datos
+            // Iterando los pacientes de la base de datos
             while (rs.next()) {
                 // Recuperando los campos
-                String medico = rs.getString("nombreMedico");
-                String paciente = rs.getString("nombre");
+                int idCita = rs.getInt("idCita");
+                String medico = rs.getString("medico");
+                String paciente = rs.getString("paciente");
                 String hora = rs.getString("hora");
 
-                // Creando un nuevo paciente
-                cita = new Citas(medico, paciente, hora);
-                // Añadiendo paciente a la lista de pacientes
+                // Creando una nueva cita
+                cita = new Citas(idCita, medico, paciente, hora);
+                // Añadiendo pla cita a la lista de citas
                 citas.add(cita);
             }
         } catch (SQLException ex) {
@@ -70,14 +72,14 @@ public class CitasJDBC {
 
             // Recuperando los campos
             int idCita = rs.getInt("idCita");
-            String nombreMédico = rs.getString("nombreMedico");
-            String nombrePaciente = rs.getString("nombrePaciente");
+            String medico = rs.getString("medico");
+            String paciente = rs.getString("paciente");
             String hora = rs.getString("hora");
 
-            // Setenado los campos a la cita (Creando un nueva cita)
+            // Setenado los campos a la cita (Creando una nueva cita)
             cita.setIdCita(idCita);
-            cita.setMedico(nombreMédico);
-            cita.setPaciente(nombrePaciente);
+            cita.setMedico(medico);
+            cita.setPaciente(paciente);
             cita.setHora(hora);
         } catch (SQLException ex) {
             System.err.println("Error al encontrar la cita " + ex.getMessage());
@@ -104,14 +106,15 @@ public class CitasJDBC {
             stmt = con.prepareStatement(SQL_INSERT);
 
             // Seteando los parámetros a la consulta preparada
-            stmt.setString(1, cita.getMedico());
-            stmt.setString(2, cita.getPaciente());
-            stmt.setString(3, cita.getHora());
+            stmt.setInt(1, cita.getIdCita());
+            stmt.setString(2, cita.getMedico());
+            stmt.setString(3, cita.getPaciente());
+            stmt.setString(4, cita.getHora());
 
             // Ejecutando la sentencia SQL_INSERT
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.err.println("Error al insertar la cita " + ex.getMessage());
+            System.err.println("Error al insertar cita " + ex.getMessage());
         } finally {
             // Cerrando los objetos
             Conexion.close(stmt);
@@ -120,7 +123,7 @@ public class CitasJDBC {
         return rows;
     }
 
-    // Método pata actualizar una cita en la base de datos
+    // Método pata actualizar un paciente en la base de datos
     public int actualizar(Citas cita) {
 
         // Declarando los objetos
@@ -138,12 +141,11 @@ public class CitasJDBC {
             stmt.setString(2, cita.getMedico());
             stmt.setString(3, cita.getPaciente());
             stmt.setString(4, cita.getHora());
-            stmt.setInt(5, cita.getIdCita());
 
             // Ejecutando la sentencia SQL_UPDATE
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.err.println("Error al actualizar la cita " + ex.getMessage());
+            System.err.println("Error al actualizar cita " + ex.getMessage());
         } finally {
             // Cerrando los objetos
             Conexion.close(stmt);
@@ -152,7 +154,7 @@ public class CitasJDBC {
         return rows;
     }
 
-    // Método para eliminar una cita
+    // Método para eliminar un paciente
     public int eliminar(Citas cita) {
 
         // Declarando los objetos
@@ -172,7 +174,7 @@ public class CitasJDBC {
             rows = stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            System.err.println("Error al eliminar la cita " + ex.getMessage());
+            System.err.println("Error al eliminar cita " + ex.getMessage());
         } finally {
             // Cerrando los objetos
             Conexion.close(stmt);

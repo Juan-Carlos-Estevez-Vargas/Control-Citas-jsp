@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <title>Editar Cita</title>
+        <title>Editar Médico</title>
     </head>
     <body>
         <!-- Cabecero usando bootstrap -->
         <jsp:include page="/WEB-INF/paginas/citas/comunes/cabecero.jsp" />
 
-        <form action="${pageContext.request.contextPath}/ServletControladorCitas?accion=modificar&idCita=${medico.idCita}" method="POST" class="was-validated">
+        <form action="${pageContext.request.contextPath}/ServletControladorCitas?accion=modificar&idCita=${cita.idCita}" method="POST" class="was-validated">
             <!-- Botones de navegación -->
             <jsp:include page="/WEB-INF/paginas/citas/comunes/botonesNavegacionEdicion.jsp" />   
             <section id="details">
@@ -24,27 +24,23 @@
                                     <h4>Editar Cita</h4>
                                 </div>
                                 <div class="card-body">
-                                    <!--<div class="form-group">
-                                        <label for="medico">Médico</label>
-
-                                        <select>
-                                            <c:forEach var="medico" items="${citas}" >
-                                                <option value="nombreMedico">${medico.nombreMedico}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>-->
                                     <div class="form-group">
-                                        <label for="nombreMedico">Medico</label>
-                                        <input type="text" class="form-control" name="nombreMedico" required ">
+                                        <label for="idCita">ID Cita</label>
+                                        <input type="number" class="form-control" name="idCita" required value="${cita.getIdCita()}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nombre">Paciente</label>
-                                        <input type="text" class="form-control" name="nombre" required ">
+                                        <label for="medico">Médico</label>
+                                        <input type="text" class="form-control" name="medico" required value="${cita.getMedico()}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="paciente">Paciente</label>
+                                        <input type="text" class="form-control" name="paciente" required value="${cita.getPaciente()}">
                                     </div>
                                     <div class="form-group">
                                         <label for="hora">Hora</label>
-                                        <input type="time" class="form-control" name="hora" required ">
+                                        <input type="text" class="form-control" name="hora" required value="${cita.getHora()}">
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

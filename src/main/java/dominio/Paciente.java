@@ -1,5 +1,7 @@
 package dominio;
 
+import java.sql.Date;
+
 public class Paciente {
     // Mapeo de la tabla Paciente de la base de datos
     private String nombre;

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-3">
                 <a href="#" class="btn btn-primary btn-block" 
-                   data-toggle="modal" data-target="#agregarCitaModal">
+                   data-toggle="modal" data-target="#agregarCitasModal">
                     <i class="fas fa-plus"></i>  Agregar Cita
                 </a>
             </div>

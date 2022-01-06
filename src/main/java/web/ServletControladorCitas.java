@@ -47,6 +47,7 @@ public class ServletControladorCitas extends HttpServlet {
                     break;
                 case "eliminar":
                     this.eliminarCita(request, response);
+                    break;
                 default:
                     this.accionDefalult(request, response);
             }
@@ -57,7 +58,7 @@ public class ServletControladorCitas extends HttpServlet {
 
     //------------- Métodos CRUD -----------------------------------------------------------
     private void accionDefalult(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Listando las citas
+        // Listando los pacientes
         List<Citas> citas = new CitasJDBC().listar();
 
         // Compartiendo la información con el frontend (alcance sesión)
@@ -65,21 +66,22 @@ public class ServletControladorCitas extends HttpServlet {
         sesion.setAttribute("citas", citas);
         sesion.setAttribute("totalCitas", citas.size());
 
-        // Redireccionando a la página de citas.jsp
+        // Redireccionando a la página de pacientes.jsp
         response.sendRedirect("citas.jsp");
     }
 
-    // Método para insertar un médico a la base de datos
+    // Método para insertar un paciente a la base de datos
     private void insertarCita(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Recuperando los valores del formulario agregarCita.jsp
-        String nombreMedico = request.getParameter("medico");
-        String nombrePaciente = request.getParameter("paciente");
+        // Recuperando los valores del formulario agregarPaciente.jsp
+        int idCita = Integer.parseInt(request.getParameter("idCita"));
+        String medico = request.getParameter("medico");
+        String paciente = request.getParameter("paciente");
         String hora = request.getParameter("hora");
 
-        // Creando el objeto cita (modelo)
-        Citas cita = new Citas(nombreMedico, nombrePaciente, hora);
+        // Creando el objeto Citas (modelo)
+        Citas cita = new Citas(idCita, medico, paciente, hora);
 
-        // Insertando la cita en la base de datos
+        // Insertando la Cita en la base de datos
         int registrosModificados = new CitasJDBC().insertar(cita);
         System.out.println("Registros Modificados = " + registrosModificados);
 
@@ -87,46 +89,47 @@ public class ServletControladorCitas extends HttpServlet {
         this.accionDefalult(request, response);
     }
 
-    // Método para modificar una cita
+    // Método para modificar un paciente
     private void modificarCita(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Recuperando los valores del formulario agregarCita.jsp
+        // Recuperando los valores del formulario agregarPaciente.jsp
         int idCita = Integer.parseInt(request.getParameter("idCita"));
-        String nombreMedico = request.getParameter("nombreMedico");
-        String nombrePaciente = request.getParameter("nombre");
+        String medico = request.getParameter("medico");
+        String paciente = request.getParameter("paciente");
         String hora = request.getParameter("hora");
 
-        // Creando el objeto cita (modelo)
-        Citas cita = new Citas(idCita, nombreMedico, nombrePaciente, hora);
+         // Creando el objeto Citas (modelo)
+        Citas cita = new Citas(idCita, medico, paciente, hora);
 
-        // Modificando la cita en la base de datos
+        // Modificando el paciente en la base de datos
         int registrosModificados = new CitasJDBC().actualizar(cita);
         System.out.println("Registros Modificados = " + registrosModificados);
 
-        // Redirigiendo a la accion por default (listado actualizado de citas)
+        // Redirigiendo a la accion por default (listado actualizado de clientes)
         this.accionDefalult(request, response);
     }
 
-    // Método para eliminar citas
+    // Método para eliminar pacientes
     private void eliminarCita(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Recuperando los valores del formulario agregarPaciente.jsp
         int idCita = Integer.parseInt(request.getParameter("idCita"));
-
-        // Creando el objeto cita (modelo)
+        
+        // Creando el objeto paciente (modelo)
         Citas cita = new Citas(idCita);
 
-        // Modificando la cita en la base de datos
+        // Modificando el paciente en la base de datos
         int registrosModificados = new CitasJDBC().eliminar(cita);
         System.out.println("Registros Eliminados = " + registrosModificados);
 
-        // Redirigiendo a la accion por default (listado actualizado de citas)
+        // Redirigiendo a la accion por default (listado actualizado de clientes)
         this.accionDefalult(request, response);
     }
 
-    // Método para editar un médico
+    // Método para editar un paciente
     private void editarCita(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Recuperando el idCita
-        int idCita = Integer.parseInt(request.getParameter("idCita"));
+        // Recuperando el idPaciente
+       int idCita = Integer.parseInt(request.getParameter("idCita"));
 
-        // Recuperando o encontrando el objeto cita asociado al idCita
+        // Recuperando o encontrando el objeto paciente asociado al idPaciente
         Citas cita = new CitasJDBC().encontrar(new Citas(idCita));
         request.setAttribute("cita", cita);
         String jspEditar = "/WEB-INF/paginas/citas/editarCita.jsp";

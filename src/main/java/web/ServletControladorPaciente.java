@@ -4,7 +4,12 @@ package web;
 import datos.PacienteJDBC;
 import dominio.Paciente;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -39,11 +44,26 @@ public class ServletControladorPaciente extends HttpServlet {
         String accion = request.getParameter("accion");
         if (accion != null) {
             switch (accion) {
-                case "insertar":
-                    this.insertarPaciente(request, response);
-                    break;
-                case "modificar":
-                    this.modificarPaciente(request, response);
+                case "insertar": {
+                    try {
+                        this.insertarPaciente(request, response);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ServletControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+                case "modificar": {
+                    try {
+                        this.modificarPaciente(request, response);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ServletControladorPaciente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                break;
+
+                case "eliminar":
+                    this.eliminarPaciente(request, response);
                     break;
                 default:
                     this.accionDefalult(request, response);
@@ -68,7 +88,7 @@ public class ServletControladorPaciente extends HttpServlet {
     }
 
     // Método para insertar un paciente a la base de datos
-    private void insertarPaciente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void insertarPaciente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
         // Recuperando los valores del formulario agregarPaciente.jsp
         String nombre = request.getParameter("nombre");
         String fechaNacimiento = request.getParameter("fechaNacimiento");
@@ -78,7 +98,7 @@ public class ServletControladorPaciente extends HttpServlet {
         String historiaClinica = request.getParameter("historiaClinica");
 
         // Creando el objeto Paciente (modelo)
-        Paciente paciente = new Paciente(nombre, fechaNacimiento, idPaciente, tipoIdentificacion, eps, historiaClinica);
+        Paciente paciente = new Paciente(nombre,  fechaNacimiento, idPaciente, tipoIdentificacion, eps, historiaClinica);
 
         // Insertando el Paciente en la base de datos
         int registrosModificados = new PacienteJDBC().insertar(paciente);
@@ -89,7 +109,7 @@ public class ServletControladorPaciente extends HttpServlet {
     }
 
     // Método para modificar un paciente
-    private void modificarPaciente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void modificarPaciente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
         // Recuperando los valores del formulario agregarPaciente.jsp
         String nombre = request.getParameter("nombre");
         String fechaNacimiento = request.getParameter("fechaNacimiento");
@@ -99,7 +119,7 @@ public class ServletControladorPaciente extends HttpServlet {
         String historiaClinica = request.getParameter("historiaClinica");
 
         // Creando el objeto Paciente (modelo)
-        Paciente paciente = new Paciente(nombre, fechaNacimiento, idPaciente, tipoIdentificacion, eps, historiaClinica);
+        Paciente paciente = new Paciente(nombre,  fechaNacimiento, idPaciente, tipoIdentificacion, eps, historiaClinica);
 
         // Modificando el paciente en la base de datos
         int registrosModificados = new PacienteJDBC().actualizar(paciente);
@@ -112,15 +132,12 @@ public class ServletControladorPaciente extends HttpServlet {
     // Método para eliminar pacientes
     private void eliminarPaciente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Recuperando los valores del formulario agregarPaciente.jsp
-        String idPaciente = request.getParameter("idPaciente");
-        
-        // Recuperando o encontrando el objeto paciente asociado al idPaciente
-        Paciente paciente = new PacienteJDBC().encontrar(new Paciente(idPaciente));
-        System.out.println(paciente);
+        String idPaciente = request.getParameter("idPaciente");;
 
-//        // Creando el objeto paciente (modelo)
-//        Paciente paciente = new Paciente(idPaciente);
-//
+        // Creando el objeto paciente (modelo)
+        Paciente paciente = new Paciente(idPaciente);
+        System.err.println(paciente.getHistoriaClinica());
+
         // Modificando el paciente en la base de datos
         int registrosModificados = new PacienteJDBC().eliminar(paciente);
         System.out.println("Registros Eliminados = " + registrosModificados);
